@@ -1,0 +1,26 @@
+<html>
+        <head></head>
+        <body>
+                <div id="videocall-content" style="min-height: 700px;height: 100%;width: 80%;margin: 0 auto;">
+                </div>
+		<script>
+			var videoCallId = Math.random().toString(36).substring(2, 15) + (new Date()).getTime() + Math.random().toString(36).substring(2, 15);
+			var jitsiMeetUrl = 'https://meet.jit.si/' + videoCallId + '#config.disableDeepLinking=true';	
+			var zappierUrl = 'https://hooks.zapier.com/hooks/catch/xxxxxxx/xxxxxxx/?viedocall_link=' + jitsiMeetUrl;
+
+			var img = document.createElement("img");
+			img.src = zappierUrl;
+			img.width="0";
+			img.height="0";
+	
+			var iframe = document.createElement('iframe');
+			iframe.src = jitsiMeetUrl;
+			iframe.width="100%";
+			iframe.height="100%";
+
+			var wrapper = document.getElementById("videocall-content");
+			wrapper.appendChild(iframe);
+			wrapper.appendChild(img);
+		</script>
+        </body>
+</html>
